@@ -1,0 +1,13 @@
+version: '3.8'  # Specify the Compose file format version
+
+services:
+  app:
+    image: sales-transcript-translator  # You can use this if the image is already built
+    build:
+      context: .  # The path to the directory containing the Dockerfile
+      dockerfile: Dockerfile  # The Dockerfile name (optional, default is 'Dockerfile')
+    env_file:
+      - .env  # Load environment variables from the .env file
+    ports:
+      - "8080:8080"  # Map port 8080 on the host to port 8080 in the container
+    restart: always  # Ensure the container restarts automatically if it crashes
